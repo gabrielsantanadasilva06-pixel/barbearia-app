@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<div class="container">
+    <h1>Agenda</h1>
+    <h2>📅 Hoje: {{ hoje }}</h2>
+    <h3>💰 Total do dia: R$ {{ "%.2f"|format(total_dia) }}</h3>
+    <h3>📊 Total geral: R$ {{ "%.2f"|format(total_geral) }}</h3>
+    {% for cliente in clientes %}
+        <div style="margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+            
+            <strong>📅 {{ cliente.data }} | ⏰ {{ cliente.horario }}</strong><br><br>
+
+            👤 {{ cliente.nome }} <br>
+            📞 {{ cliente.telefone }} <br><br>
+
+            💰 R$ {{ cliente.valor }} - {{ cliente.pagamento }}
+
+            💰 R$ {{ cliente.valor }} - {{ cliente.pagamento }}
+
+            <br><br>
+
+            <a href="https://wa.me/{{ cliente.telefone | replace('(', '') | replace(')', '') | replace(' ', '') | replace('-', '') }}" target="_blank">
+                <button>💬 WhatsApp</button>
+            </a>
+
+            <br><br>
+
+            <a href="/excluir/{{ loop.index0 }}" onclick="return confirm('Finalizar atendimento?')">
+                <button>Finalizar Atendimento</button>
+            </a>
+        </div>
+    {% endfor %}
+
+    <br>
+    <a href="/"><button>Voltar</button></a>
+</div>

@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<div class="container">
+    <h1>Cadastrar Cliente</h1>
+
+    <form method="POST">
+    <input type="text" name="nome" placeholder="Nome" required><br><br>
+
+    <input type="tel" id="telefone" name="telefone" placeholder="(83) 9 9999-9999" required><br><br>
+
+    <input type="date" name="data" required><br><br>
+
+    <input type="text" name="horario" placeholder="Horário (Ex: 14:00)" required><br><br>
+
+    <input type="number" name="valor" placeholder="Valor (R$)" required><br><br>
+
+    <select name="pagamento" required>
+        <option value="">Forma de pagamento</option>
+        <option>Dinheiro</option>
+        <option>Pix</option>
+        <option>Cartão</option>
+    </select><br><br>
+
+    <button type="submit">Salvar</button>
+</form>
+
+    <br>
+    <a href="/">Voltar</a>
+</div>
+<script>
+document.getElementById("telefone").addEventListener("input", function(e) {
+    let valor = e.target.value.replace(/\D/g, "");
+
+    if (valor.length > 11) valor = valor.slice(0, 11);
+
+    if (valor.length > 0) {
+        valor = "(" + valor;
+    }
+    if (valor.length > 3) {
+        valor = valor.slice(0, 3) + ") " + valor.slice(3);
+    }
+    if (valor.length > 10) {
+        valor = valor.slice(0, 10) + "-" + valor.slice(10);
+    }
+
+    e.target.value = valor;
+});
+</script>

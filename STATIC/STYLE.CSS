@@ -1,0 +1,28 @@
+body {
+    font-family: Arial;
+    background-color: #fffafa;
+
+    display: flex;
+    justify-content: center;  /* centraliza horizontal */
+    align-items: center;      /* centraliza vertical */
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: rgb(135, 145, 160);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    background: #2c3e50;
+    color: rgb(228, 223, 223);
+}
